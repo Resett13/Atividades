@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisição Ajax com Fetch API</title>
+    <link rel="stylesheet" href="index.css">
+
+    <script>
+
+        let phpCompletedFun = (response) => {
+            console.log(response.text().then((data) => {
+                document.getElementById('resultado').innerHTML = data;
+            }));
+        }
+        let clickButton = () => {
+            fetch('Requisicao.php').then(phpCompletedFun);
+        }
+        let loadFunction = () => {
+            window.document.getElementById('btn').addEventListener('click', clickButton)
+        }
+        window.onload = loadFunction;
+
+    </script>
+
+</head>
+<body>
+    <h1>Requisição Ajax com Fetch API</h1>
+    <button id="btn">Requisição Ajax</button> 
+    <span id="resultado"></span>   
+</body>
+</html>
